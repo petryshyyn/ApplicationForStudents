@@ -1,0 +1,1 @@
+#export GOOGLE_APPLICATION_CREDENTIALS=C:/Users/ihor/IdeaProjects/Second/ApplicationForStudents/src/main/resources/project-v1-312813-cb2315a58ca3.json

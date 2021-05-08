@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Application For Students</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+    <body>
+    <nav class="navbar navbar-dark bg-dark">
+        <h4 class="navbar-brand text-light" th:href="@{/}">Project</h4>
+        <div class="nav justify-content-end">
+        <a class="form-inline text-white" th:href="@{/login}">
+            <input class="form-control mr-sm-2 " type="submit" value="Sign in">
+        </a>
+        <a class="form-inline text-white" th:href="@{/register}">
+            <input class="form-control mr-sm-2" type="submit" value="Sign up">
+        </a>
+        </div>
+    </nav>
+        <div class="container text-center">
+            <br><h1>Welcome</h1>
+        </div>
+    </body>
+</html>
+
