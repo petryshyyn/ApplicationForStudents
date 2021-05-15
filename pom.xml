@@ -17,22 +17,42 @@
 		<java.version>11</java.version>
 	</properties>
 
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
+			<scope>provided</scope>
+		</dependency>
+		<!--<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jul-to-slf4j</artifactId>
+			<scope>provided</scope>
+		</dependency>-->
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+			<!--<exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-tomcat</artifactId>
+				</exclusion>
+			</exclusions>-->
 		</dependency>
 
-		<dependency>
+		<!--<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
 			<scope>runtime</scope>
 			<optional>true</optional>
-		</dependency>
+		</dependency>-->
 
 		<dependency>
 			<groupId>mysql</groupId>
@@ -77,29 +97,52 @@
 			<artifactId>webjars-locator-core</artifactId>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/com.google.cloud.sql/mysql-socket-factory -->
-		<dependency>
-			<groupId>com.google.cloud.sql</groupId>
-			<artifactId>mysql-socket-factory</artifactId>
-			<version>1.0.4</version>
-		</dependency>
+		<!--<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
+			<type>jar</type>
+			<scope>provided</scope>
+		</dependency>-->
 
-		<!-- https://mvnrepository.com/artifact/com.google.cloud.tools/appengine-gradle-plugin -->
-		<dependency>
-			<groupId>com.google.cloud.tools</groupId>
-			<artifactId>appengine-gradle-plugin</artifactId>
-			<version>2.2.0</version>
-		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-gcp-starter-sql-mysql -->
 
 		<dependency>
-			<groupId>javax.xml.bind</groupId>
-			<artifactId>jaxb-api</artifactId>
-			<version>2.3.0</version>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-gcp-starter</artifactId>
+			<version>1.0.0.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-gcp-starter-sql-mysql</artifactId>
+			<version>1.0.0.RELEASE</version>
+		</dependency>
+
+		<!--<dependency>
+			<groupId>com.google.cloud</groupId>
+			<artifactId>google-cloud</artifactId>
+			<version>0.8.0</version>
+		</dependency>-->
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
 		</dependency>
 	</dependencies>
 
+
 	<build>
 		<plugins>
+			<plugin>
+				<groupId>com.google.cloud.tools</groupId>
+				<artifactId>appengine-maven-plugin</artifactId>
+				<version>2.0.0</version>
+				<configuration>
+					<projectId>gcp-application-petryshyn</projectId>
+					<devserver.host>35.223.82.58</devserver.host>
+					<devserver.port>8080</devserver.port>
+					<deploy.version>GCLOUD_CONFIG</deploy.version>
+				</configuration>
+			</plugin>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
@@ -113,17 +156,6 @@
 					<target>1.8</target>
 				</configuration>
 			</plugin>
-
-			<plugin>
-				<groupId>com.google.cloud.tools</groupId>
-				<artifactId>appengine-maven-plugin</artifactId>
-				<version>2.2.0</version>
-				<configuration>
-					<stage.enableJarSplitting>true</stage.enableJarSplitting>
-					<deploy.stopPreviousVersion>true</deploy.stopPreviousVersion>
-				</configuration>
-			</plugin>
-
 		</plugins>
 	</build>
 </project>
