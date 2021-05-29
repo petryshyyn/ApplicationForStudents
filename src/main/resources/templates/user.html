@@ -1,11 +1,9 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="ISO-8859-1">
     <title>About User</title>
-    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
-    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
-    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
 <body>
 <nav class="navbar navbar-dark bg-dark">
@@ -15,13 +13,11 @@
     </form>
 </nav>
 <div class="container text-center">
-    <p><br>
-        Welcome <b>[[${#request.userPrincipal.principal.fullName}]]</b>
-    </p>
+    <br>
     <div>
         <h3>About Student</h3>
     </div>
-    <div>
+    <div th:each="el : ${users}">
         <table class="table table-striped table-bordered">
             <thead class="thead-dark">
             <tr>
@@ -32,11 +28,16 @@
             </tr>
             </thead>
             <tbody>
-            <td>[[${#request.userPrincipal.principal.Username}]]</td>
-            <td>[[${#request.userPrincipal.principal.FirstName}]]</td>
-            <td>[[${#request.userPrincipal.principal.LastName}]]</td>
-            <td>[[${#request.userPrincipal.principal.DateOfBirth}]]</td>
-            </tr>
+            <td><span th:text="${el.email}"></span></td>
+            <td>
+                <spam th:text="${el.firstName}"></spam>
+            </td>
+            <td>
+                <spam th:text="${el.lastName}"></spam>
+            </td>
+            <td>
+                <spam th:text="${el.dateOfBirth}"></spam>
+            </td>
             </tbody>
         </table>
     </div>

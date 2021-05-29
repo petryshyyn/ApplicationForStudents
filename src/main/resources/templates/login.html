@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+<nav class="navbar navbar-dark bg-dark">
+    <h4 class="navbar-brand text-light" th:href="@{/}">Project</h4>
+    <div class="nav justify-content-end">
+        <a class="form-inline text-white" th:href="@{/register}">
+            <input class="form-control mr-sm-2" type="submit" value="Sign up">
+        </a>
+    </div>
+</nav>
+<br>
+<div class="cotainer">
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+            <div class="card">
+                <div class="card-header">Login</div>
+                <div class="card-body">
+                    <form th:action="@{/login}" method="post" style="max-width: 350px; margin: 0 auto;">
+
+                        <div th:if="${param.error}">
+                            <p class="text-danger"><!--[[${session.SPRING_SECURITY_LAST_EXCEPTION.message}]]-->
+                                error</p>
+                        </div>
+
+                        <div th:if="${param.logout}">
+                            <p class="text-warning">You have been logged out.</p>
+                        </div>
+
+
+                        <p>
+                            <input type="email" name="email" class="form-control" placeholder="E-mail" required
+                                   autofocus/>
+                        </p>
+                        <p>
+                            <input type="password" name="password" class="form-control" placeholder="Password"
+                                   required/>
+                        </p>
+                        <p>
+                            <input type="checkbox" name="remember-me"/>&nbsp;Remember Me
+                        </p>
+                        <!--<p>
+                            <input type="submit" value="Login" class="btn btn-primary"/>
+                        </p>-->
+                        <div class="col-md-6 offset-md-4">
+                            <button type="submit" value="Login" class="btn btn-primary">Login</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
